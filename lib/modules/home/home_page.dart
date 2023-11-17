@@ -63,39 +63,52 @@ class _HomeScreenContentState extends State<_HomeScreenContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              // disini adalah kondisi dimana untuk melihat state nya
-              BlocBuilder<UserBloc, UserState>(
-                builder: (context, state) {
-                  if (state is UserLoading) {
-                    return const Center(child: Text('Menunggu data pengguna'));
-                  } else if (state is UserLoaded) {
-                    return ProfileWidget().profileInfo(state.userData, context);
-                  } else {
-                    return const Center(
-                        child: Text('Gagal mengambil data pengguna'));
-                  }
-                },
-              ),
-              const SizedBox(height: 20.0),
-              BlocBuilder<AnnouncementBloc, AnnouncementState>(
-                builder: (context, state) {
-                  if (state is AnnouncementLoading) {
-                    return const Center(child: Text('Menunggu data pengguna'));
-                  } else if (state is AnnouncementLoaded) {
-                    return AnnouncementWidget()
-                        .announcementInfo(state.announcementData);
-                  } else {
-                    return const Center(
-                        child: Text('Gagal mengambil data pengguna'));
-                  }
-                },
-              ),
-            ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              "assets/images/bg_lg.png",
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                // disini adalah kondisi dimana untuk melihat state nya
+                BlocBuilder<UserBloc, UserState>(
+                  builder: (context, state) {
+                    if (state is UserLoading) {
+                      return const Center(
+                          child: Text('Menunggu data pengguna'));
+                    } else if (state is UserLoaded) {
+                      return ProfileWidget()
+                          .profileInfo(state.userData, context);
+                    } else {
+                      return const Center(
+                          child: Text('Gagal mengambil data pengguna'));
+                    }
+                  },
+                ),
+                const SizedBox(height: 20.0),
+                BlocBuilder<AnnouncementBloc, AnnouncementState>(
+                  builder: (context, state) {
+                    if (state is AnnouncementLoading) {
+                      return const Center(
+                          child: Text('Menunggu data pengguna'));
+                    } else if (state is AnnouncementLoaded) {
+                      return AnnouncementWidget()
+                          .announcementInfo(state.announcementData);
+                    } else {
+                      return const Center(
+                          child: Text('Gagal mengambil data pengguna'));
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

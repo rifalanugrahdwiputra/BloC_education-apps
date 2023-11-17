@@ -108,23 +108,17 @@ class FormWidgets {
                   height: 46.0,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: emailController.text.isNotEmpty &&
-                              passwordController.text.isNotEmpty
-                          ? Colors.pink
-                          : Colors.grey.shade400,
+                      primary: Colors.pink,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
                     onPressed: () {
-                      if (emailController.text.isNotEmpty &&
-                          passwordController.text.isNotEmpty) {
-                        final email = emailController.text;
-                        final password = passwordController.text;
-                        BlocProvider.of<AuthBloc>(context).add(
-                            LoginButtonPressed(
-                                email: email, password: password));
-                      }
+                      final email = emailController.text;
+                      final password = passwordController.text;
+                      BlocProvider.of<AuthBloc>(context).add(
+                        LoginButtonPressed(email: email, password: password),
+                      );
                     },
                     child: const Text(
                       'Login',
