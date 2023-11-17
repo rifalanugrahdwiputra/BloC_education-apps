@@ -6,6 +6,8 @@ import '../home/home_page.dart';
 import 'widgets/form_widgets.dart';
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final emailController = TextEditingController();
