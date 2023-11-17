@@ -16,7 +16,7 @@ class AnnouncementWidget {
               itemBuilder: (BuildContext context, int index) {
                 var announcement = results[index];
                 return SizedBox(
-                  width: 250,
+                  width: 175,
                   child: Card(
                     elevation: 5,
                     child: ClipRRect(
