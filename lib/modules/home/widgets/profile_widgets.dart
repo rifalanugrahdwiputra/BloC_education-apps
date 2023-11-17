@@ -37,12 +37,28 @@ class ProfileWidget {
         ),
         const SizedBox(width: 40.0),
         Expanded(
-          child: ElevatedButton(
-            onPressed: () {
-              BlocProvider.of<LogoutBloc>(context)
-                  .add(LogoutButtonPressed(context: context));
-            },
-            child: const Text('Logout'),
+          child: SizedBox(
+            height: 40.0,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.pink,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+              ),
+              onPressed: () {
+                BlocProvider.of<LogoutBloc>(context)
+                    .add(LogoutButtonPressed(context: context));
+              },
+              child: const Text(
+                'Logout',
+                style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
         ),
       ],
