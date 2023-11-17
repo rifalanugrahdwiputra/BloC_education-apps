@@ -5,9 +5,10 @@ import '../../../bloc/auth_bloc.dart';
 
 class FormWidgets {
   Widget buildLoginForm(
-      BuildContext context,
-      TextEditingController emailController,
-      TextEditingController passwordController) {
+    BuildContext context,
+    TextEditingController emailController,
+    TextEditingController passwordController,
+  ) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
